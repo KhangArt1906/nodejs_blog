@@ -5,7 +5,7 @@ const handlebars = require("express-handlebars");
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname + "/public"));
 
 //http logger
 app.use(morgan("combined"));
@@ -27,6 +27,15 @@ app.get("/", (req, res) => {
 
 app.get("/news", (req, res) => {
   res.render("news");
+});
+
+app.get("/search", (req, res) => {
+  res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  console.log(req.query.q);
+  res.render("search");
 });
 
 app.listen(port, () => {
