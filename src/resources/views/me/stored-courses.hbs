@@ -1,14 +1,13 @@
 <div class="mt-4">
   <h3>Khoa hoc cua toi</h3>
 
-  <table class="table">
+  <table class="table mt-4">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Ten khoa hoc</th>
         <th scope="col">Trinh do</th>
         <th scope="col">Thoi gian tao</th>
-        <th scope="col" colspan="2">Thoi gian tao</th>
       </tr>
     </thead>
     <tbody>
@@ -19,13 +18,12 @@
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
-            <a href="" class="btn btn-link">Xoa</a>
+            <a href="/courses/{{this._id}}/edit" class="btn btn-link">Edit</a>
+            <a href="" class="btn btn-link">Delete</a>
           </td>
         </tr>
 
       {{/each}}
-
     </tbody>
   </table>
 </div>
