@@ -4,13 +4,6 @@
   <a href="/me/trash/courses">Trash ({{deletedCount}})</a>
 
     <div class="mt-4 d-flex align-items-center">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" value="" id="checkbox-all"/>
-        <label for="checkbox-all" class="form-check-label">
-            Choose All
-        </label>
-      </div>
-
 
       <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
       <option value="">-- Actions --</option>
@@ -31,7 +24,16 @@
   <table class="table mt-4">
     <thead>
       <tr>
-        <th scope="col" colspan="2">#</th>
+        <th scope="col">
+           <div class="form-check">
+        <input type="checkbox" class="form-check-input" value="" id="checkbox-all"/>
+       
+      </div>
+        </th>
+        <th scope="col">
+          ID
+           {{{sortable '_id' _sort}}}
+        </th>
         <th scope="col">
           Ten khoa hoc
             {{{sortable 'name' _sort}}}
@@ -55,7 +57,7 @@
           </td>
           </div>
 
-          <th scope="row">{{sum @index 1}}</th>
+          <th scope="row">{{this._id}}</th>
           <td>{{this.name}}</td>
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
