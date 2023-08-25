@@ -23,6 +23,19 @@ const CourseSchema = new Schema(
 );
 
 
+
+
+//Custom query helpers
+CourseSchema.query.sortable = function(req){
+  if(req.query.hasOwnProperty('_sort')){
+    const isValidtype = ['asc', 'desc'].includes(req.query.type);
+    return this.sort({
+        [req.query.column]:  isValidtype ? req.query.type : 'desc',
+    })
+} 
+    return this;
+}
+
 //Add plugins
 mongoose.plugin(slug);
 

@@ -77,6 +77,26 @@ class CourseController {
               res.json({message: 'ACtion is invalid'})
        }
   }
+
+    // [PATCH] /courses/handle-revise-actions
+    handleRestoreDeleteActions(req, res, next){
+      switch(req.body.action){
+        case 'restore': 
+        Course.restore({ _id: { $in: req.body.courseIds } })
+        .then(() => res.redirect('back'))
+        .catch(next);
+         break;
+        case 'delete-forever':
+          Course.deleteMany({ _id: { $in: req.body.courseIds}})
+          .then(() => res.redirect('back'))
+          .catch(next);
+          break;
+         default:
+            res.json({message: 'Action is invalid'})
+      }
+
+    }
+   
 }
 
 module.exports = new CourseController();
